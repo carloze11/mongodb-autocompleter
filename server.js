@@ -31,9 +31,9 @@ app.get('/search', async(req, res) => {
     try{
         let result = await collection.aggregate([
             {
-                "$Search": {
+                "$search": {
                     "autocomplete": {
-                        "query": `${request.query.query}`,
+                        "query": `${req.query.query}`,
                         "path": "title",
                         "fuzzy": {
                             "maxEdits": 2, //allow for two letter mistakes
